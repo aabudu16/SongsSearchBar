@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var songSearchBar: UISearchBar!
+    @IBOutlet var songTextView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         <#code#>
@@ -29,6 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
 
