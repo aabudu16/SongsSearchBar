@@ -48,8 +48,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oln-nK-8dK">
-                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oln-nK-8dK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -70,7 +70,7 @@
                     <navigationItem key="navigationItem" id="8Hq-Of-pzG"/>
                     <connections>
                         <outlet property="songSearchBar" destination="Oln-nK-8dK" id="gIf-i3-vTJ"/>
-                        <outlet property="songTextView" destination="8Df-sh-GRi" id="VRj-xo-UVf"/>
+                        <outlet property="songTableView" destination="8Df-sh-GRi" id="Mcy-S5-fhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

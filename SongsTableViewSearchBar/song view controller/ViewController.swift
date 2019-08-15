@@ -12,15 +12,47 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var song = Song.loveSongs
     @IBOutlet var songSearchBar: UISearchBar!
-    @IBOutlet var songTextView: UITableView!
+    @IBOutlet var songTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        songTextView.delegate = self
-        songTextView.dataSource = self
+        songTableView.delegate = self
+        songTableView.dataSource = self
         songSearchBar.delegate = self
     }
     
+    var songSeachResults:[Song] {
+        get{
+            guard let searchSongString = searchSongString else {
+                return song
+            } //this filters searches through the searchString and makes sure its not empty else returns Person.allPeople
+            guard searchSongString != "" else {
+                return song
+            }
+            
+            if let scoptTitles = songSearchBar.scopeButtonTitles {
+                let currentScopeIndex = songSearchBar.selectedScopeButtonIndex
+                
+                switch scoptTitles[currentScopeIndex]{
+                case "Songs":
+                    return song.filter({$0.name.contains(searchSongString.lowercased())})
+                case "Artist":
+                    return
+                        song.filter({$0.artist.contains(searchSongString.lowercased())})
+                default:
+                    return song
+                }
+            }
+            return song
+        }
+    }
+    //used to store values of persons and reload the tableView each time
+    
+    var searchSongString:String? = nil {
+        didSet {
+            self.songTableView.reloadData()
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return song.count
     }
