@@ -17,7 +17,9 @@ class songDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+detailSongName.text = detailSongs.name
+        detailSongArtist.text = detailSongs.artist
+        detailSongImage.image = UIImage(named: "loveSongs")
        
     }
     

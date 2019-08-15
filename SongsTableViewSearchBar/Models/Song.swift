@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SongAPI: Codable {
     var song_name: String
@@ -21,7 +22,7 @@ class SongAPI: Codable {
 class Song {
     var name: String
     var artist: String
-    //let SongImage = UIImage(named: "loveSongs")
+  static let songImage = UIImage(named: "loveSongs")
     init(name: String, artist: String) {
         self.name = name
         self.artist = artist

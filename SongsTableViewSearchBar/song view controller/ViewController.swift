@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var song = Song.loveSongs
-     let SongImage = UIImage(named: "loveSongs")
     @IBOutlet var songSearchBar: UISearchBar!
     @IBOutlet var songTextView: UITableView!
     
@@ -40,10 +39,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        if let songDetailViewController = storyBoard.instantiateViewController(withIdentifier: "songStoryBoard-ID") as? songDetailViewController{
+        if let songDetailView = storyBoard.instantiateViewController(withIdentifier: "songStoryBoard-ID") as? songDetailViewController{
             
+            songDetailView.detailSongs = song[indexPath.row]
           
-            self.navigationController?.pushViewController(songDetailViewController, animated: true)
+            self.navigationController?.pushViewController(songDetailView, animated: true)
         }
         
     }
