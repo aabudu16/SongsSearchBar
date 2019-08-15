@@ -10,13 +10,15 @@ import UIKit
 
 class songDetailViewController: UIViewController {
 
+    var detailSongs:Song!
     @IBOutlet var detailSongName: UILabel!
     @IBOutlet var detailSongImage: UIImageView!
     @IBOutlet var detailSongArtist: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
     }
     
 

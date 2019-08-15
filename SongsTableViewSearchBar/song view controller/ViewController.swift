@@ -11,9 +11,16 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var song = Song.loveSongs
-    
+     let SongImage = UIImage(named: "loveSongs")
     @IBOutlet var songSearchBar: UISearchBar!
     @IBOutlet var songTextView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        songTextView.delegate = self
+        songTextView.dataSource = self
+        songSearchBar.delegate = self
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return song.count
@@ -31,12 +38,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        songTextView.delegate = self
-        songTextView.dataSource = self
-        songSearchBar.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        if let songDetailViewController = storyBoard.instantiateViewController(withIdentifier: "songStoryBoard-ID") as? songDetailViewController{
+            
+          
+            self.navigationController?.pushViewController(songDetailViewController, animated: true)
+        }
         
     }
 
