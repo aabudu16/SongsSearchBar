@@ -10,6 +10,9 @@ import UIKit
 
 class songDetailViewController: UIViewController {
 
+    @IBOutlet var detailSongName: UILabel!
+    @IBOutlet var detailSongImage: UIImageView!
+    @IBOutlet var detailSongArtist: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
