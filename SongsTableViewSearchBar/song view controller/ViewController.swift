@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         get{
             guard let searchSongString = searchSongString else {
                 return song
-            } //this filters searches through the searchString and makes sure its not empty else returns Person.allPeople
+            }
             guard searchSongString != "" else {
                 return song
             }
@@ -35,10 +35,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 switch scoptTitles[currentScopeIndex]{
                 case "Songs":
-                    return song.filter({$0.name.contains(searchSongString.lowercased())})
+                    return song.filter({$0.name.contains(searchSongString)})
                 case "Artist":
                     return
-                        song.filter({$0.artist.contains(searchSongString.lowercased())})
+                        song.filter({$0.artist.contains(searchSongString)})
                 default:
                     return song
                 }
@@ -54,12 +54,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return song.count
+        return songSeachResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "songCell"){
-       let info = song[indexPath.row]
+       let info = songSeachResults[indexPath.row]
         cell.textLabel?.text = info.name
         cell.detailTextLabel?.text = info.artist
         
@@ -73,11 +73,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         if let songDetailView = storyBoard.instantiateViewController(withIdentifier: "songStoryBoard-ID") as? songDetailViewController{
             
-            songDetailView.detailSongs = song[indexPath.row]
+            songDetailView.detailSongs = songSeachResults[indexPath.row]
           
             self.navigationController?.pushViewController(songDetailView, animated: true)
         }
         
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchSongString = searchBar.text
     }
 
     override func didReceiveMemoryWarning() {

@@ -51,7 +51,7 @@
                             <searchBar contentMode="redraw" fixedFrame="YES" text="" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oln-nK-8dK">
                                 <rect key="frame" x="0.0" y="88" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                 <scopeButtonTitles>
                                     <string>Songs</string>
                                     <string>Artist</string>
