@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var song = Song.loveSongs
     
@@ -35,6 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         songTextView.delegate = self
         songTextView.dataSource = self
+        songSearchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         
     }
